@@ -16,6 +16,7 @@ itemsRouter.get('/', async (_req, res, next) => {
       })),
     );
   } catch (error) {
+    
     next(error);
   }
 });

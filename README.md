@@ -27,7 +27,7 @@ No Node.js. No MongoDB. No version managers.
 3. Wait for the first build. Subsequent starts take seconds.
 4. In the container terminal:
 
-```bash
+```bash  
 npm --prefix src/server run seed   # load sample data
 npm --prefix src/server run dev    # API   -> http://localhost:4000
 npm --prefix src/client run dev    # Web   -> http://localhost:5173
