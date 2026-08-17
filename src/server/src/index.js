@@ -13,6 +13,10 @@ app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 
+app.get('/health', (_req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
+
 app.use('/api/items', itemsRouter);
 
 // Errors are logged server-side; clients receive nothing internal.
@@ -27,3 +31,4 @@ app.listen(settings.port, () => {
   console.log(`API listening on http://localhost:${settings.port}`);
   console.log(`Connected to ${settings.mongoUrl}/${settings.mongoDb}`);
 });
+
