@@ -109,7 +109,7 @@ A change is done when all four gates pass:
 | Gate | Question |
 | :--- | :--- |
 | **Code** | Does it satisfy every acceptance criterion on the issue? |
-| **Tests** | Is the new behaviour covered, and is the suite green? |
+| **Verification** | Has the new behaviour been checked and does the application still run correctly? |
 | **Docs** | Does the documentation still describe reality? |
 | **Traceability** | Can someone get from any line to the reason it exists? |
 

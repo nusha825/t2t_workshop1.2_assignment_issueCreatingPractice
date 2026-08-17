@@ -24,7 +24,7 @@ your change will not test your change.
 ## Definition of Done
 <!-- Tick only what is true. An untrue tick is worse than an empty one. -->
 - [ ] **Code** — behaviour matches every acceptance criterion on the linked issue
-- [ ] **Tests** — new behaviour is covered and the suite is green
+- [ ] **Verification** — the new behaviour was tested manually and the application still runs correctly
 - [ ] **Docs** — documentation still describes reality, updated in *this* pull request
 - [ ] **Traceability** — branch, commits and this pull request all reference the issue
 
