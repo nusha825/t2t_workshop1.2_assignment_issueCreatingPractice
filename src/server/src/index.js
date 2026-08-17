@@ -3,6 +3,7 @@ import cors from 'cors';
 import { settings } from './config.js';
 import { connect } from './db.js';
 import { itemsRouter } from './routes/items.js';
+import { healthStatus } from './health.js';
 
 const app = express();
 
@@ -14,7 +15,7 @@ app.get('/api/health', (_req, res) => {
 });
 
 app.get('/health', (_req, res) => {
-  res.status(200).json({ status: 'ok' });
+  res.status(200).json(healthStatus());
 });
 
 app.use('/api/items', itemsRouter);
