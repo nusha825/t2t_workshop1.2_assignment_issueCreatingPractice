@@ -3,6 +3,7 @@ import cors from 'cors';
 import { settings } from './config.js';
 import { connect } from './db.js';
 import { itemsRouter } from './routes/items.js';
+import { healthStatus } from './health.js';
 
 const app = express();
 
@@ -11,6 +12,10 @@ app.use(express.json({ limit: '10kb' }));
 
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok' });
+});
+
+app.get('/health', (_req, res) => {
+  res.status(200).json(healthStatus());
 });
 
 app.use('/api/items', itemsRouter);
@@ -27,3 +32,4 @@ app.listen(settings.port, () => {
   console.log(`API listening on http://localhost:${settings.port}`);
   console.log(`Connected to ${settings.mongoUrl}/${settings.mongoDb}`);
 });
+
