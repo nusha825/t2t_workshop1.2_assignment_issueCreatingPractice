@@ -125,7 +125,7 @@ immediately after cloning. Read `.env.example` to see every value the applicatio
 
 | Method | Path               | What is does             |
 | :----- | :-------------     | :----------------------- |
-| GET    | `/api/health`      | Liveness check           |
+| GET    | `/api/health`      | Existing API health check |
 | GET    | `/api/items`       | List the 50 newest items |
 | POST   | `/api/items`       | Create an item           |
 | DELETE | `/api/items/:id`   | Delete an item           |
