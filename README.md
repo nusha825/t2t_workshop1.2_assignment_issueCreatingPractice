@@ -27,7 +27,7 @@ No Node.js. No MongoDB. No version managers.
 3. Wait for the first build. Subsequent starts take seconds.
 4. In the container terminal:
 
-```bash  
+```bash
 npm --prefix src/server run seed   # load sample data
 npm --prefix src/server run dev    # API   -> http://localhost:4000
 npm --prefix src/client run dev    # Web   -> http://localhost:5173
@@ -73,7 +73,7 @@ The inspector port never leaves the container, so it needs no port forwarding.
 
 ## How it is wired
 
-```
+```text
 Your laptop
 └── Docker
     ├── app container    Node 22, editor attaches here, runs web + API
@@ -88,7 +88,7 @@ forwarded ports.
 
 ## Layout
 
-```
+```text
 .
 ├── .devcontainer/           Environment definition
 │   ├── devcontainer.json      What the editor opens
@@ -123,20 +123,38 @@ immediately after cloning. Read `.env.example` to see every value the applicatio
 
 ## API
 
-| Method | Path               | What is does             |
-| :----- | :-------------     | :----------------------- |
-| GET    | `/api/health`      | Liveness check           |
-| GET    | `/api/items`       | List the 50 newest items |
-| POST   | `/api/items`       | Create an item           |
-| DELETE | `/api/items/:id`   | Delete an item           |
+| Method | Path | What it does |
+| :----- | :--- | :----------- |
+| GET | `/api/health` | Liveness check |
+| GET | `/health` | Simple server health check |
+| GET | `/api/items` | List the 50 newest items |
+| POST | `/api/items` | Create an item |
+| DELETE | `/api/items/:id` | Delete an item |
 
+Create an item:
 
 ```bash
 curl -X POST http://localhost:4000/api/items \
   -H 'Content-Type: application/json' \
   -d '{"name":"my first item"}'
-
-curl -i -X DELETE http://localhost:4000/api/items/<id>   
 ```
 
+Delete an item:
 
+```bash
+curl -i -X DELETE http://localhost:4000/api/items/<id>
+```
+
+### Health check
+
+Run:
+
+```bash
+curl http://localhost:4000/health
+```
+
+Expected response:
+
+```json
+{"status":"ok"}
+```
